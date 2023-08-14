@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 95%;
+    margin: auto;
+}
+
+.logo {
+    text-decoration: none;
+}
+
+.flex-parent {
+    padding-top: 40px;
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.infoTitle {
+    text-align: center;
+    font: 500 24px Inter;
+    padding-top: 20px;
+}
+
+.string {
+    font: 500 18px Inter;
+}
+
+.error {
+    text-align: center;
+    padding-top: 30px;
+    font: 500 18px Inter;
+}
+
+header {
+    background-color: #000;
+}
+
+.headerFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerTitle {
+    color: #FFF;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+}
+
+.lichessLogo {
+    width: 90px;
+    height: 90px;
+}
+
+.searchForm {
+    padding: 10px 0;
+}
+
+.searchButton {
+    border: none;
+    outline: none;
+    background-color: #000;
+    color: #7F7F7F;
+    padding: 4px 7px;
+    font: 500 15px Inter;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.6s;
+    margin-left: 10px;
+}
+
+.searchButton:hover {
+    color: #FFF;
+}
+
+.search {
+    padding: 4px 7px;
+    font: 500 14px Inter;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.search:focus {
+    border: none;
+    outline: none;
+}
+
+section {
+    background-color: #C3C3C3;
+}
