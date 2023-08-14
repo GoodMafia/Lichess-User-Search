@@ -34,11 +34,11 @@ function addInfo(
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   let value = searchInp.value;
-    if (value.length > 21) {
+  if (value.length > 21) {
     main.innerHTML = `<p class="error">ERROR: Длина никнейма ${value} превышает максимальное значение.</p>`;
     searchInp.value = "";
     return false;
-  } else if(value == ""){
+  } else if (value == "") {
     main.innerHTML = `<p class="error">ERROR: Вы ввели пустой никнейм. Пожалуйста повторите попытку.</p>`;
     searchInp.value = "";
     return false;
@@ -48,21 +48,24 @@ form.addEventListener("submit", (event) => {
       return response.json();
     })
     .then((data) => {
+      console.log(data);
       main.innerHTML = "";
       if (data.error === "Not found") {
         main.innerHTML = `<p class="error">ERROR: User с никнеймом ${value} не найден.</p>`;
         searchInp.value = "";
         return false;
-      } else if(data.disabled == true){
+      } else if (data.disabled == true) {
         main.innerHTML = `<p class="infoTitle" style="padding-top: 30px;">Информация о профиле ${data.username}</p><p class="string" style="text-align: center; padding-top: 10px;">Данный аккаунт закрыт</p>`;
         searchInp.value = "";
         return false;
       }
-
-      let date = new Date(data.createdAt);
-      let year = date.getFullYear();
-      let month = date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth();
-      let day = date.getDay() < 10 ? '0' + date.getDay() : date.getDay();
+      let timestamp = data.createdAt;
+      let date = new Date(timestamp);
+      let year = date.getUTCFullYear();
+      let month = date.getUTCMonth() + 1;
+      month = month < 10 ? "0" + month : month;
+      let day =
+        date.getUTCDate() < 10 ? "0" + date.getUTCDate() : date.getUTCDate();
       let registerDate = `${day}.${month}.${year}`;
       addInfo(
         data.username,

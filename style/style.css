@@ -9,9 +9,10 @@
     margin: auto;
 }
 
-.logo{
+.logo {
     text-decoration: none;
 }
+
 .flex-parent {
     padding-top: 40px;
     width: 600px;
@@ -22,11 +23,12 @@
 
 .infoTitle {
     text-align: center;
-    font: 500 20px Inter;
+    font: 500 24px Inter;
+    padding-top: 20px;
 }
 
 .string {
-    font: 500 16px Inter;
+    font: 500 18px Inter;
 }
 
 .error {
