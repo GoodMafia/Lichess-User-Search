@@ -29,17 +29,18 @@ function addInfo(
             <p class="string">Rapid рейтинг - ${rapidRating}</p>
             <p class="string">Classical рейтинг - ${classicalRating}</p>
         </div>
-        </div>`;
+        </div>
+        <div class="lichessLogotype"><img src="img/images.jpeg"></div>`;
 }
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   let value = searchInp.value;
   if (value.length > 21) {
-    main.innerHTML = `<p class="error">ERROR: Длина никнейма ${value} превышает максимальное значение.</p>`;
+    main.innerHTML = `<p class="error">ERROR: Длина никнейма ${value} превышает максимальное значение.</p><div class="lichessLogotype"><img src="img/images.jpeg"></div>`;
     searchInp.value = "";
     return false;
   } else if (value == "") {
-    main.innerHTML = `<p class="error">ERROR: Вы ввели пустой никнейм. Пожалуйста повторите попытку.</p>`;
+    main.innerHTML = `<p class="error">ERROR: Вы ввели пустой никнейм. Пожалуйста повторите попытку.</p><div class="lichessLogotype"><img src="img/images.jpeg"></div>`;
     searchInp.value = "";
     return false;
   }
@@ -51,11 +52,11 @@ form.addEventListener("submit", (event) => {
       console.log(data);
       main.innerHTML = "";
       if (data.error === "Not found") {
-        main.innerHTML = `<p class="error">ERROR: User с никнеймом ${value} не найден.</p>`;
+        main.innerHTML = `<p class="error">ERROR: User с никнеймом ${value} не найден.</p><div class="lichessLogotype"><img src="img/images.jpeg"></div>`;
         searchInp.value = "";
         return false;
       } else if (data.disabled == true) {
-        main.innerHTML = `<p class="infoTitle" style="padding-top: 30px;">Информация о профиле ${data.username}</p><p class="string" style="text-align: center; padding-top: 10px;">Данный аккаунт закрыт</p>`;
+        main.innerHTML = `<p class="infoTitle" style="padding-top: 30px;">Информация о профиле ${data.username}</p><p class="string" style="text-align: center; padding-top: 10px;">Данный аккаунт закрыт</p><div class="lichessLogotype"><img src="img/images.jpeg"></div>`;
         searchInp.value = "";
         return false;
       }

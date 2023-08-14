@@ -3,7 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.lichessLogotype{
+    padding-top: 30px;
+    text-align: center;
+}
 .container {
     width: 95%;
     margin: auto;
