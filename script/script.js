@@ -48,19 +48,21 @@ form.addEventListener("submit", (event) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+      main.innerHTML = "";
       if (data.error === "Not found") {
         main.innerHTML = `<p class="error">ERROR: User с никнеймом ${value} не найден.</p>`;
         searchInp.value = "";
         return false;
-      } 
+      } else if(data.disabled == true){
+        main.innerHTML = `<p class="infoTitle" style="padding-top: 30px;">Информация о профиле ${data.username}</p><p class="string" style="text-align: center; padding-top: 10px;">Данный аккаунт закрыт</p>`;
+        searchInp.value = "";
+        return false;
+      }
 
       let date = new Date(data.createdAt);
       let year = date.getFullYear();
       let month = date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth();
       let day = date.getDay() < 10 ? '0' + date.getDay() : date.getDay();
-      console.log(date.getMonth());
-      console.log(date.getDay())
       let registerDate = `${day}.${month}.${year}`;
       addInfo(
         data.username,
