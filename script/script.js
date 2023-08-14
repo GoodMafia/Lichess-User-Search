@@ -12,7 +12,10 @@ function addInfo(
   blitzRating,
   bulletRating,
   rapidRating,
-  classicalRating
+  classicalRating,
+  ultrabulletRating,
+  lostGames, 
+  correspondenceRating
 ) {
   main.innerHTML = `
         <p class="infoTitle">Информация о профиле ${username}</p>
@@ -21,13 +24,17 @@ function addInfo(
             <p class="string">Дата регистрации - ${registerDate}</p>
             <p class="string">Количество игр - ${allGames}</p>
             <p class="string">Количесвто рейтинговых игр - ${ratedGames}</p>
+            <p class="string">Количество товарищеских игр - ${allGames - ratedGames}</p>
             <p class="string">Количество выигранных игр - ${wonGames}</p>
+            <p class="string">Количество проигранных игр - ${lostGames}</p>
         </div>
         <div class="second-block">
             <p class="string">Blitz рейтинг - ${blitzRating}</p>
             <p class="string">Bullet рейтинг - ${bulletRating}</p>
             <p class="string">Rapid рейтинг - ${rapidRating}</p>
             <p class="string">Classical рейтинг - ${classicalRating}</p>
+            <p class="string">Ultrabullet рейтинг - ${ultrabulletRating}</p>
+            <p class="string">Correspondence рейтинг - ${correspondenceRating}</p>
         </div>
         </div>
         <div class="lichessLogotype"><img src="img/images.jpeg"></div>`;
@@ -65,8 +72,7 @@ form.addEventListener("submit", (event) => {
       let year = date.getUTCFullYear();
       let month = date.getUTCMonth() + 1;
       month = month < 10 ? "0" + month : month;
-      let day =
-        date.getUTCDate() < 10 ? "0" + date.getUTCDate() : date.getUTCDate();
+      let day = date.getUTCDate() < 10 ? "0" + date.getUTCDate() : date.getUTCDate();
       let registerDate = `${day}.${month}.${year}`;
       addInfo(
         data.username,
@@ -77,7 +83,10 @@ form.addEventListener("submit", (event) => {
         data.perfs.blitz.rating,
         data.perfs.bullet.rating,
         data.perfs.rapid.rating,
-        data.perfs.classical.rating
+        data.perfs.classical.rating,
+        data.perfs.ultraBullet.rating,
+        data.count.loss,
+        data.perfs.correspondence.rating
       );
     });
 });
