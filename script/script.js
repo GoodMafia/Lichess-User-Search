@@ -13,7 +13,6 @@ function addInfo(
   bulletRating,
   rapidRating,
   classicalRating,
-  ultrabulletRating,
   lostGames, 
   correspondenceRating
 ) {
@@ -33,7 +32,6 @@ function addInfo(
             <p class="string">Bullet рейтинг - ${bulletRating}</p>
             <p class="string">Rapid рейтинг - ${rapidRating}</p>
             <p class="string">Classical рейтинг - ${classicalRating}</p>
-            <p class="string">Ultrabullet рейтинг - ${ultrabulletRating}</p>
             <p class="string">Correspondence рейтинг - ${correspondenceRating}</p>
         </div>
         </div>
@@ -84,7 +82,6 @@ form.addEventListener("submit", (event) => {
         data.perfs.bullet.rating,
         data.perfs.rapid.rating,
         data.perfs.classical.rating,
-        data.perfs.ultraBullet.rating,
         data.count.loss,
         data.perfs.correspondence.rating
       );
